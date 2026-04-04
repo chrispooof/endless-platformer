@@ -1,0 +1,20 @@
+[gd_scene format=3 uid="uid://cyiyqeeye7k2b"]
+
+[ext_resource type="Script" uid="uid://do4ojwxgj17ul" path="res://src/main.gd" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://dliy4a52yypud" path="res://scenes/platform.tscn" id="4_jyhfs"]
+[ext_resource type="PackedScene" uid="uid://8vawxqlgc3va" path="res://scenes/hud.tscn" id="5_tbgi4"]
+
+[node name="Main" type="Node2D" unique_id=1226328280]
+script = ExtResource("1_o5qli")
+
+[node name="Player" type="Node2D" parent="." unique_id=1753107334]
+
+[node name="StartPosition" type="Marker2D" parent="." unique_id=578059248]
+position = Vector2(200, 600)
+
+[node name="Platforms" type="Node2D" parent="." unique_id=393020148 groups=["platform"]]
+
+[node name="Platform" parent="." unique_id=1941840799 instance=ExtResource("4_jyhfs")]
+position = Vector2(200, 625)
+
+[node name="HUD" parent="." unique_id=1310640995 instance=ExtResource("5_tbgi4")]
