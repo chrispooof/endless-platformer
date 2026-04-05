@@ -81,15 +81,26 @@ func game_over() -> void:
 
 func spawn_platform() -> void:
 	"""Spawns a new platform at a random x-position and a y-position above the highest spawn point."""
-	var platform_options = [platform, breakable_platform]
-	var chosen_platform = platform_options[randi() % platform_options.size()]
+	var progress = clamp(abs(highest_spawn_y) / 2000.0, 0.0, 1.0)
+
+	# Weighted platform selection
+	var breakable_chance = lerp(0.1, 0.7, progress)
+	var chosen_platform
+	if randf() < breakable_chance:
+		chosen_platform = breakable_platform
+	else:
+		chosen_platform = platform
+
 	var new_platform = chosen_platform.instantiate()
 
-	highest_spawn_y -= randf_range(20.0, 40.0)
-	var random_x = randf_range(25.0, Constants.SCREEN_WIDTH - 25.0)
+	# Biased gap
+	var min_gap = lerp(20.0, 35.0, progress)
+	var gap = randf_range(min_gap, 40.0)
 
+	highest_spawn_y -= gap
+
+	var random_x = randf_range(25.0, Constants.SCREEN_WIDTH - 25.0)
 	new_platform.position = Vector2(random_x, highest_spawn_y)
 
 	platforms_container.add_child(new_platform)
-
 	new_platform.show()
