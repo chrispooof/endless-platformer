@@ -9,6 +9,14 @@ func _physics_process(delta: float) -> void:
 	# Add the gravity.
 	if not is_on_floor():
 		velocity += get_gravity() * delta
+	
+	# Handle collisions with breakable platforms.
+	for i in range(get_slide_collision_count()):
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		if collider.is_in_group("breakable_platform"):
+			velocity.y = Constants.JUMP_VELOCITY
+			collider.queue_free()
 
 	# Handle jump.
 	if Input.is_action_just_pressed("ui_accept") and is_on_floor():

@@ -1,10 +1,11 @@
 extends Node2D
 
-@onready var player = preload("res://scenes/Player.tscn")
+@onready var player = preload("res://scenes/player.tscn")
 @onready var player_container = $Player
 @onready var start_position = $StartPosition
 @onready var platforms_container = $Platforms
-@onready var platform = preload("res://scenes/Platform.tscn")
+@onready var platform = preload("res://scenes/platform.tscn")
+@onready var breakable_platform = preload("res://scenes/breakable_platform.tscn")
 @onready var hud = $HUD
 
 
@@ -80,7 +81,9 @@ func game_over() -> void:
 
 func spawn_platform() -> void:
 	"""Spawns a new platform at a random x-position and a y-position above the highest spawn point."""
-	var new_platform = platform.instantiate()
+	var platform_options = [platform, breakable_platform]
+	var chosen_platform = platform_options[randi() % platform_options.size()]
+	var new_platform = chosen_platform.instantiate()
 
 	highest_spawn_y -= randf_range(20.0, 40.0)
 	var random_x = randf_range(25.0, Constants.SCREEN_WIDTH - 25.0)

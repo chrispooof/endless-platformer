@@ -1,0 +1,43 @@
+[gd_scene format=4 uid="uid://dsfsp75e4muju"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_20mdn"]
+_data = PackedByteArray("AAADAAUAAAABAAAATAAAABkAAACGAQAAUklGRn4BAABXRUJQVlA4THEBAAAvSwAGEC9AEECSRgYr7G+xwz5qAiBhaMML2j/UvtUEIMAYVRTRP4EqrvkPAM22Lm9TnAPIDeDGjRQJ/JtA/Feuv2A2kD0KoA1M/71EQ8YlRPSfgRtJbRbSqCbP6Hcqc6VKgITR70mptQwzs2ZmNiKg5RJrpW/WLOkbMWxISA9Kbh/cPuh5MlZiin3JMCu5l5Ofq5i1OiYg+YxfAcz01rdmbOB1k4ZALbTLp7mbbcx+tLbZY0zBGNFiVu3xsro9XnaMh9hRGwm6HaO/zLfJ2CYDdxTHHeLo6IffaZy8KiqEQAV3zCLFAUm+BHD+YlIoOWLmBOfUDTh3WwkgTijnm0CCZTZDsV5Uo1oEHLhnJ3JV6Ft1J0ocS1IP4Mn9uUL0uqMEicfQYbgXWH7EsU8DJS6bIEBuWZwA0QLnCHSPbeXLTycxb+AoqnsqihEeF7L+LKqAn4ssyS7rZUEaKQlh/biTbVYJcGpxJM/Lv+oeDpe0UxEA")
+size_override = Vector2(76, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4t87"]
+size = Vector2(76, 26)
+
+[node name="BreakablePlatform" type="StaticBody2D" unique_id=1941840799 groups=["breakable_platform", "platform"]]
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2059475068]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_20mdn")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/breakable_platform.aseprite",
+"source_uid": 3635118850972148393
+}
+metadata/_aseprite_wizard_source_file_hash_ = "383034f617c5d77ae3bf5d5983c3ff88"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564712395]
+shape = SubResource("RectangleShape2D_v4t87")
+one_way_collision = true
+one_way_collision_margin = 5.0
+
+[connection signal="child_entered_tree" from="." to="." method="_on_child_entered_tree"]
