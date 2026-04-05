@@ -4,7 +4,7 @@ A simple platformer game with random generation of platforms. The score is incre
 
 ## Demo
 
-<video src="https://github.com/user-attachments/assets/91d3efa3-b6e2-43ac-b851-5dcf2daef73d" controls ></video>
+<video src="https://github.com/user-attachments/assets/c30de957-f1e8-405b-9b8d-60c94c19b9d9" controls ></video>
 
 
 ## Requirements
