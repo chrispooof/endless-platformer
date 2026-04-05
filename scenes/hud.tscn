@@ -34,8 +34,9 @@ anchor_top = 1.0
 anchor_right = 0.5
 anchor_bottom = 1.0
 offset_left = -71.5
-offset_top = -63.0
+offset_top = -176.0
 offset_right = 71.5
+offset_bottom = -113.0
 grow_horizontal = 2
 grow_vertical = 0
 theme_override_font_sizes/font_size = 40
@@ -44,5 +45,21 @@ text = "Start"
 [node name="MessageTimer" type="Timer" parent="." unique_id=717462773]
 wait_time = 2.0
 
+[node name="InfoButton" type="Button" parent="." unique_id=875231027]
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -71.5
+offset_top = -82.0
+offset_right = 71.5
+offset_bottom = -19.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 40
+text = "Info"
+
 [connection signal="pressed" from="StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="timeout" from="MessageTimer" to="." method="_on_message_timer_timeout"]
+[connection signal="pressed" from="InfoButton" to="." method="_on_info_button_pressed"]

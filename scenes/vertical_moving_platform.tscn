@@ -1,0 +1,44 @@
+[gd_scene format=4 uid="uid://3yuasqiwavs7"]
+
+[ext_resource type="Script" uid="uid://ca5e4cabr4qw1" path="res://src/platforms/vertical_moving_platform.gd" id="1_ilhu7"]
+
+[sub_resource type="PortableCompressedTexture2D" id="PortableCompressedTexture2D_r5lsn"]
+_data = PackedByteArray("AAADAAUAAAABAAAATAAAABkAAACmAAAAUklGRp4AAABXRUJQVlA4TJIAAAAvSwAGEC+gpm0DNtezf1UASyEbSdCSvUaLexhnQBZgMoJpBJA/ThJd8x8A3vaLPF1kA1aNbTXKOugGTngCCA7IGmjXv55H/Y3ov9q2bRiXLT1frFsRLjEV4TFLHCkViLvSE0vEadNVIq5PGgWADPwCccPrzcpBIrySW5L8lsxxg1clCEVkOUCJj1n2GAocyvUxAQ==")
+size_override = Vector2(76, 25)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v4t87"]
+size = Vector2(76, 26)
+
+[node name="Platform" type="StaticBody2D" unique_id=1941840799 groups=["platform", "vertical_moving_platform"]]
+script = ExtResource("1_ilhu7")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=2059475068]
+texture_filter = 1
+texture = SubResource("PortableCompressedTexture2D_r5lsn")
+metadata/_aseprite_wizard_interface_config_ = {
+"pending_changes": {}
+}
+metadata/_aseprite_wizard_config_ = {
+"convert_fps_field": 60.0,
+"convert_ms_field": 16.0,
+"convert_to_fps": false,
+"embed_tex": true,
+"i_mode": 1,
+"keep_anim_length": false,
+"layers": [],
+"o_ex_p": "",
+"o_folder": "",
+"o_name": "",
+"only_visible": false,
+"player": "",
+"scale": "1.0",
+"slice": "",
+"source": "res://assets/vertical_moving_platform.aseprite",
+"source_uid": 6471517056361531594
+}
+metadata/_aseprite_wizard_source_file_hash_ = "5599065876c57c7cdf8d47c0a8b1a4be"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=564712395]
+shape = SubResource("RectangleShape2D_v4t87")
+one_way_collision = true
+one_way_collision_margin = 5.0
